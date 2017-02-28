@@ -1,0 +1,152 @@
+body {
+	padding: 20px 50px;
+}
+
+#main-container {
+	/*border: solid red 1px;*/
+}
+
+#form-container {
+	/*border: solid green 1px;*/
+}
+
+#results-container {
+	margin-top: 2em;
+}
+
+#results-info {
+	/*border: solid blue 1px;*/
+}
+
+#results-list {
+	/*border: solid green 1px;
+	min-height: 200px;*/
+}
+
+#wait-cursor {
+	display: none;
+	/*margin-left: 20px;*/
+	margin-bottom: 20px;
+}
+
+.results-items {
+	/*border: solid black 1px;*/
+	padding-left: 0;
+}
+
+.results-item {
+	list-style-type: none;
+	border: solid #ccc 1px;
+	border-radius: 3px;
+	margin-bottom: 20px;
+	padding: 10px;
+}
+
+.item-icon {
+	/*float: left;*/
+	/*border: solid red 1px;*/
+}
+
+.item-icon > i {
+	font-size: 3em;
+	color: #666;
+	margin-top: 5px;
+}
+
+.item-name-block {
+	/*border: solid red 1px;*/
+	/*float: left;*/
+}
+.item-name {
+	display: block;
+	font-size: 1.4em;
+}
+.item-path {
+	display: inline-block;
+	color: #a0a0a0;
+}
+
+.item-dl-block {
+	/*border: solid red 1px;*/
+	/*float: right;*/
+}
+.item-dl-icon > i {
+	font-size: 2.7em;
+	/*border: dashed blue 1px;*/
+	float: right;
+	margin-top: 5px;
+}
+.item-size {
+	margin-right: 3.2em;
+	margin-top: 2px;
+	color: #333;
+	text-align: right;
+}
+.item-mime-type {
+	margin-top: -2px;
+	margin-right: 3.2em;
+	color: #888;
+	text-align: right;
+}
+.item-license {
+	color: #666;
+	text-align: right;
+}
+
+.item-keywords-block {
+	/*border: solid red 1px;*/
+	margin-top: 0.5em;
+}
+.keywords-title, .date-title {
+	display: inline;
+	font-weight: bold;
+	color: #999;
+}
+.item-keywords {
+	display: inline;
+	color: #666;
+}
+
+.item-created {
+	display: inline;
+	color: #666;
+}
+.item-modified {
+	display: inline;
+	color: #666;
+}
+
+.bottom-line {
+	height: 32px;
+	margin-top: -5px;
+	position: relative;
+}
+
+.item-stats-block {
+	/*border: solid red 1px;*/
+	position: absolute;
+	bottom: 0;
+}
+
+.btn-circle {
+	width: 30px;
+	height: 30px;
+	text-align: center;
+	padding: 6px 0;
+	font-size: 12px;
+	line-height: 1.428571429;
+	border-radius: 15px;
+	font-weight: bold;
+	color: #333;
+}
+
+.item-meta-block {
+	/*border: solid red 1px;*/
+	text-align: right;
+	position: absolute;
+	bottom: 0;
+	right: 0;
+}
+.item-owner, .item-permissions, .item-groups, .item-meta {
+	display: inline-block;
+}

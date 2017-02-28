@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Cumulus simple Web search</title>
+		<meta charset="UTF-8">
+		<!--<meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+
+		<script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
+		<script type="text/javascript" src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="bower_components/mustache.js/mustache.min.js"></script>
+		<script type="text/javascript" src="bower_components/filesize/lib/filesize.min.js"></script>
+		<script type="text/javascript" src="bower_components/moment/min/moment.min.js"></script>
+		<script type="text/javascript" src="bower_components/moment/min/locales.min.js"></script>
+
+		<script type="text/javascript" src="config/config.js"></script>
+		<script type="text/javascript" src="CumulusSearch.js"></script>
+		<script type="text/javascript" src="cumulus-simple-web-search.js"></script>
+
+		<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+		<link rel="stylesheet" href="default.css">
+	</head>
+	<body>
+		<div id="main-container">
+			<div id="form-container" class="container-fluid">
+				<div class="row">
+					<div class="col-md-1 col-sm-1 col-xs-2">
+						<input id="advanced-search" class="btn btn-default" type="button" value="+">
+					</div>
+					<div class="col-md-9 col-sm-9 col-xs-7">
+						<input id="search-terms" class="form-control" type="text" placeholder="Search terms" autofocus>
+					</div>
+					<div class="col-md-2 col-sm-2 col-xs-3">
+						<input id="search" class="btn btn-primary" type="button" value="Search">
+					</div>
+				</div>
+			</div>
+			<div id="results-container" class="col-md-12">
+				<div id="results-info">
+					<!-- template -->
+				</div>
+				<hr>
+				<!--<div id="results-list-wait-overlay">-->
+					<div id="wait-cursor">
+						<img src="img/ajax-loader.gif">
+					</div>
+					<div id="results-list">
+						<!-- template -->
+					</div>
+				<!--</div>-->
+			</div>
+		</div>
+
+		<!-- ---- mustache templates ---- -->
+
+		<script type="text/html" id="tpl-results-info" >
+			{{nb_results}} results
+		</script>
+
+		<script type="text/html" id="tpl-results-list" >
+			<ul class="results-items">
+				{{#results}}
+				<li class="results-item">
+					<div class="container-fluid">
+						<div class="row">
+							<div class="item-icon col-xs-2 col-sm-1 col-md-1">
+								<i class="glyphicon glyphicon-file"></i>
+							</div>
+							<div class="item-name-block col-xs-5 col-sm-7 col-md-8">
+								<a class="item-name" title="{{fkey}}" href="{{href}}">{{name}}</a>
+								<span class="item-path">
+									{{path}}/{{name}}
+								</span>
+							</div>
+							<div class="item-dl-block col-xs-5 col-sm-4 col-md-3">
+								<a href="{{href}}" class="item-dl-icon">
+									<i class="glyphicon glyphicon-download"></i>
+								</a>
+								<div class="item-size">
+								{{size}}
+								</div>
+								<div class="item-mime-type">
+								{{mimetype}}
+								</div>
+								<!--<div class="item-license">
+								{{license}}
+								</div>-->
+							</div>
+						</div>
+						<div class="row">
+							<div class="item-keywords-block col-sm-12 col-md-12">
+								<div class="keywords-title">
+									Keywords:
+								</div>
+								<div title="{{keywords}}" class="item-keywords">
+								{{keywords}}
+								</div>
+							</div>
+						</div>
+						<div class="row bottom-line">
+							<div class="item-stats-block col-sm-8 col-md-9">
+								<div class="date-title">
+									Created:
+								</div>
+								<div class="item-created" title="{{creation_date}}">
+								{{creation_date_moment}}
+								</div>
+								<div class="date-title">
+									- last modified:
+								</div>
+								<div class="item-modified" title="{{last_modification_date}}">
+								{{last_modification_date_moment}}
+								</div>
+							</div>
+							<div class="item-meta-block col-sm-4 col-md-3">
+								<div class="item-owner">
+									<button title="Owner: {{owner}}" type="button" class="btn btn-default btn-circle">
+										<!--<i class="glyphicon glyphicon-user"></i>-->
+										O
+									</button>
+								</div>
+								<div class="item-permissions">
+									<button title="Permissions: {{permissions}}" type="button" class="btn btn-default btn-circle">
+										P
+									</button>
+								</div>
+								<div class="item-groups">
+									<button title="Groups: {{groups}}" type="button" class="btn btn-default btn-circle">
+										G
+									</button>
+								</div>
+								<div class="item-meta">
+									<button title="Metadata: {{meta}}" type="button" class="btn btn-default btn-circle">
+										M
+									</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</li>
+				{{/results}}
+			</ul>
+		</script>
+
+	</body>
+</html>
