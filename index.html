@@ -86,6 +86,21 @@
 								</div>-->
 							</div>
 						</div>
+						{{#meta}}
+						{{#description}}
+						<div class="row">
+							<div class="item-description-block col-sm-12 col-md-12">
+								<div class="description-title">
+									Description:
+								</div>
+								<div title="{{.}}" class="item-description">
+								{{.}}
+								</div>
+							</div>
+						</div>
+						{{/description}}
+						{{/meta}}
+						{{#keywords}}
 						<div class="row">
 							<div class="item-keywords-block col-sm-12 col-md-12">
 								<div class="keywords-title">
@@ -96,6 +111,7 @@
 								</div>
 							</div>
 						</div>
+						{{/keywords}}
 						<div class="row bottom-line">
 							<div class="item-stats-block col-sm-8 col-md-9">
 								<div class="date-title">
@@ -129,7 +145,7 @@
 									</button>
 								</div>
 								<div class="item-meta">
-									<button title="Metadata: {{meta}}" type="button" class="btn btn-default btn-circle">
+									<button title="Metadata: {{meta_str}}" type="button" class="btn btn-default btn-circle">
 										M
 									</button>
 								</div>

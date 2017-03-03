@@ -93,14 +93,30 @@ body {
 	text-align: right;
 }
 
+.item-description-block {
+	/*border: solid red 1px;*/
+	margin-top: 0.5em;
+}
+.item-description {
+	display: inline-block;
+	width: 70%;
+	color: #666;
+	line-height: 2rem;
+	height: 2rem;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+}
+
 .item-keywords-block {
 	/*border: solid red 1px;*/
 	margin-top: 0.5em;
 }
-.keywords-title, .date-title {
+.keywords-title, .description-title, .date-title {
 	display: inline;
+	vertical-align: top;
 	font-weight: bold;
-	color: #999;
+	color: #666;
 }
 .item-keywords {
 	display: inline;

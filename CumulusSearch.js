@@ -137,7 +137,8 @@ CumulusSearch.prototype.onSearchSuccess = function(data) {
 			last_modification_date_moment: moment(d.last_modification_date, 'YYYY-MM-DD HH:ii:ss').fromNow(),
 			keywords: d.keywords ? d.keywords.join(', ') : '',
 			owner: d.owner || 'anonymous',
-			meta: JSON.stringify(d.meta),
+			meta: d.meta,
+			meta_str: JSON.stringify(d.meta),
 			groups: d.groups ? d.groups.join(', ') : ''
 		});
 	}
