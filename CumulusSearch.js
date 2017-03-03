@@ -9,24 +9,22 @@ function CumulusSearch() {
 };
 
 CumulusSearch.prototype.setConfig = function(config) {
-	console.log("Config: ");
-	console.log(config);
 	this.config = config;
 };
 
 CumulusSearch.prototype.init = function() {
-	console.log("init");
+	//console.log("init");
 	var lthis = this;
 	// load auth and user info
 	this.load(function() {
-		console.log('Auth chargée');
+		//console.log('Auth chargée');
 		console.log(lthis.user);
 		lthis.loadEventListeners();
 	});
 };
 
 CumulusSearch.prototype.load = function(cb) {
-	console.log("auth tb chargeage !!");
+	//console.log("auth tb chargeage !!");
 	var lthis = this;
 	// get TB auth token
 	var authURL = this.config['auth']['url'] + '/identite';
@@ -43,7 +41,7 @@ CumulusSearch.prototype.load = function(cb) {
 		if (data.token != undefined) {
 			lthis.token = data.token;
 			decodedToken = lthis.decodeToken(lthis.token);
-			lthis.user = decodedToken.sub;
+			lthis.user = decodedToken;
 		}
 		// always add Authorization header; not recommanded by jQuery doc (?!)
 		var customHeaders = {},
@@ -59,6 +57,15 @@ CumulusSearch.prototype.load = function(cb) {
 		// only read rights by default
 		lthis.user = {};
 		cb(); // no one is identified; load app anyway
+	}).always(function() {
+		// render identity info
+		lthis.renderTemplate('identity-info', {
+			identity: (lthis.user.sub != undefined),
+			email: lthis.user.sub,
+			name: lthis.user.intitule,
+			couscous: lthis.user.couscous,
+			is_admin: false // @TODO detect it properly
+		});
 	});
 };
 
@@ -89,7 +96,7 @@ CumulusSearch.prototype.loadEventListeners = function() {
 };
 
 CumulusSearch.prototype.search = function() {
-	console.log('searching !');
+	//console.log('searching !');
 	//console.log(this.config.cumulus.url);
 	var lthis = this;
 

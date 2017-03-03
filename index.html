@@ -35,6 +35,9 @@
 				</div>
 			</div>
 			<div id="results-container" class="col-md-12">
+				<div id="identity-info">
+					<!-- template -->
+				</div>
 				<div id="results-info">
 					<!-- template -->
 				</div>
@@ -54,6 +57,21 @@
 
 		<script type="text/html" id="tpl-results-info" >
 			{{nb_results}} results
+		</script>
+
+		<script type="text/html" id="tpl-identity-info" >
+			{{#identity}}
+				<span class="" title="{{email}}">Bienvenue {{name}}</span>
+			{{/identity}}
+			{{^identity}}
+				T'es pas connecté, mec.
+			{{/identity}}
+			{{#is_admin}}
+				- vous êtes admin ! -
+			{{/is_admin}}
+			{{#groupes}}
+				-mes rôles-
+			{{/groupes}}
 		</script>
 
 		<script type="text/html" id="tpl-results-list" >
